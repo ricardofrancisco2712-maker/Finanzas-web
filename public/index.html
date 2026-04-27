@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#565e74",
+                        "inverse-surface": "#303032",
+                        "on-error": "#ffffff",
+                        "outline": "#76777d",
+                        "background": "#fcf8fa",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-high": "#eae7e9",
+                        "secondary-container": "#6cf8bb",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-container": "#00714d",
+                        "primary-container": "#131b2e",
+                        "on-error-container": "#93000a",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#ffafd3",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fcf8fa",
+                        "tertiary-fixed": "#ffd8e7",
+                        "on-tertiary-container": "#d3579a",
+                        "on-secondary-fixed": "#002113",
+                        "primary-fixed": "#dae2fd",
+                        "surface": "#fcf8fa",
+                        "surface-container-low": "#f6f3f5",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#3d0026",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface": "#1b1b1d",
+                        "on-tertiary-fixed-variant": "#85145a",
+                        "surface-container": "#f0edef",
+                        "surface-container-highest": "#e4e2e4",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-background": "#1b1b1d",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e4e2e4",
+                        "on-primary-container": "#7c839b",
+                        "secondary": "#006c49",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-dim": "#dcd9db",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#3d0026"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin": "32px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "base": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Inter"],
+                        "numeric-display": ["Inter"],
+                        "display": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h2": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "numeric-display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        body {
+            background-color: #fcf8fa;
+        }
+    </style>
+    <script src="/js/app.js" defer></script>
+</head>
+
+<body class="font-body-md text-on-surface bg-background antialiased">
+    <div class="flex h-screen overflow-hidden">
+        <!-- SideNavBar -->
+        <aside class="hidden md:flex flex-col h-full w-64 border-r border-slate-200 bg-slate-50 p-4 space-y-2">
+            <div class="px-4 py-6">
+                <span class="text-lg font-black text-slate-900 tracking-tight">FinControl</span>
+            </div>
+            <nav class="flex-1 space-y-2">
+                <a href="/index.html"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-slate-900 bg-slate-200/50 rounded-lg font-semibold cursor-pointer active:scale-[0.98] duration-150">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    <span class="font-label-md text-label-md">Panel</span>
+                </a>
+                <a href="/transacciones.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer active:scale-[0.98] duration-150">
+                    <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                    <span class="font-label-md text-label-md">Transacciones</span>
+                </a>
+                <a href="/analisis.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer active:scale-[0.98] duration-150">
+                    <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    <span class="font-label-md text-label-md">Análisis</span>
+                </a>
+                <a href="/configuracion.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer active:scale-[0.98] duration-150">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    <span class="font-label-md text-label-md">Configuración</span>
+                </a>
+            </nav>
+            <div class="pt-4 border-t border-slate-200 mt-auto">
+                <div class="flex items-center gap-3 px-4 py-3 mb-4 bg-white rounded-xl border border-slate-200">
+                    <img alt="Alex Morgan" class="w-10 h-10 rounded-full object-cover"
+                        data-alt="Professional headshot of a confident man in a suit with a neutral background, soft corporate lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8lCwMyS9ix0Ld5l5SA24KfNwo3ZdYktJ8bA5Oxq6bIJ-p-7P5eeR707677QyVy7W-ESbBz64CdUj8KjDoyPOWHACIdWtmpD6Dl6rN8ExA-kNxpYOuv-BEdBisyHpHrcI5CNkZ8QBr7Ot7bAAyUsyq5ki5TV0N2dj8cupj_3aVmNqZ2inG76U5F1rodFSfxGzgviyFPMu7fSUFNRcYlltuI6yjifqArdrjMtQx91Y7AuZYZWgX2MXvCZi5X2EEcCIabULvPLO4DQ" />
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-body-sm font-h3 truncate">Alex Morgan</span>
+                        <span class="text-[10px] text-slate-500 font-label-md uppercase tracking-wider">Cuenta Premium</span>
+                    </div>
+                </div>
+                <button id="addTransactionBtn"
+                    class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg font-label-md active:scale-[0.98] transition-all">
+                    <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Añadir Transacción
+                </button>
+                <div class="mt-4 space-y-1">
+                    <div
+                        class="nav-item flex items-center gap-3 px-4 py-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg cursor-pointer transition-all">
+                        <span class="material-symbols-outlined text-[20px]" data-icon="support">support</span>
+                        <span class="text-body-sm">Centro de Ayuda</span>
+                    </div>
+                    <div
+                        class="nav-item flex items-center gap-3 px-4 py-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg cursor-pointer transition-all">
+                        <span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+                        <span class="text-body-sm">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- TopAppBar -->
+            <header
+                class="flex items-center justify-between px-6 py-3 w-full bg-white border-b border-slate-200 sticky top-0 z-50">
+                <div class="flex items-center gap-6">
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900 md:hidden">FinControl</h1>
+                    <div class="relative hidden sm:block">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]"
+                            data-icon="search">search</span>
+                        <input id="searchInput"
+                            class="pl-10 pr-4 py-1.5 bg-slate-50 border-none rounded-full text-body-sm focus:ring-2 focus:ring-primary/10 w-64"
+                            placeholder="Buscar datos..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div id="btnNotifications" class="p-2 hover:bg-slate-50 rounded-full cursor-pointer transition-colors relative">
+                        <span class="material-symbols-outlined text-slate-600"
+                            data-icon="notifications">notifications</span>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+                    </div>
+                    <div id="btnHelp" class="p-2 hover:bg-slate-50 rounded-full cursor-pointer transition-colors">
+                        <span class="material-symbols-outlined text-slate-600" data-icon="help">help</span>
+                    </div>
+                    <div id="btnProfileMobile" class="md:hidden cursor-pointer">
+                        <img alt="User profile avatar" class="w-8 h-8 rounded-full border border-slate-200"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe8N329Do2uSd-c30JpL4JkrTWjCOBVsU-PYme9-5qH27gwfISndMGVYFVsee21O63XnH074GRxTnd-5mW01nxV8KZw-3skjCgc_fyup6D6-Jzwdlqch1mnF6U7pb9190B_q2Ig5GfOwZAD0L36WHM-_tyFXcmOTm37TNpE9dvTl-WNi_JUIArpa5SeciZAMMzanVv7q4j4x6rtn-LSiDjsDPgMS2pBgHQRHw6agLdQcQQGlvelCMFeWPLQpTcMEVVCtklWgVdMA" />
+                    </div>
+                </div>
+            </header>
+            <!-- Scrollable Canvas -->
+            <section class="flex-1 overflow-y-auto p-6 space-y-md">
+                <div class="max-w-[1200px] mx-auto space-y-lg">
+                    <!-- Top Summary Bento -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                        <!-- Balance Card -->
+                        <div
+                            class="md:col-span-1 bg-primary-container p-6 rounded-xl flex flex-col justify-between text-white relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span class="font-label-md text-on-primary-container uppercase opacity-80">Balance Total</span>
+                                <h2 id="totalBalance" class="text-display font-display mt-2">$0.00</h2>
+                                <div class="mt-4 flex items-center gap-2 text-secondary-fixed">
+                                    <span class="material-symbols-outlined text-sm"
+                                        data-icon="trending_up">trending_up</span>
+                                    <span class="text-body-sm font-semibold">+8.4% desde el mes pasado</span>
+                                </div>
+                            </div>
+                            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+                        </div>
+                        <!-- Income vs Expense Grid -->
+                        <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-md">
+                            <div
+                                class="bg-white p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+                                        <span class="material-symbols-outlined" data-icon="south_west">south_west</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-label-md text-on-surface-variant uppercase">Ingresos Mensuales</span>
+                                        <div id="totalIncome" class="text-h2 font-numeric-display">$0.00</div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                                    <div class="bg-secondary h-full w-[72%]"></div>
+                                </div>
+                                <p class="mt-2 text-body-sm text-slate-500">72% de la meta mensual alcanzada</p>
+                            </div>
+                            <div
+                                class="bg-white p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-error-container/30 flex items-center justify-center text-error">
+                                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-label-md text-on-surface-variant uppercase">Gastos Mensuales</span>
+                                        <div id="totalExpenses" class="text-h2 font-numeric-display">$0.00</div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                                    <div class="bg-error h-full w-[45%]"></div>
+                                </div>
+                                <p class="mt-2 text-body-sm text-slate-500">15% por debajo del presupuesto</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Middle Section: Trends & Categories -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+                        <!-- Main Trend Chart Placeholder -->
+                        <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-outline-variant">
+                            <div class="flex items-center justify-between mb-8">
+                                <h3 class="font-h3 text-h3 text-slate-900">Tendencias de Gastos</h3>
+                                <div class="flex gap-2" id="chartFilterGroup">
+                                    <button
+                                        class="chart-filter-btn px-3 py-1 text-label-md bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors">Diario</button>
+                                    <button
+                                        class="chart-filter-btn px-3 py-1 text-label-md bg-primary text-white rounded-lg">Semanal</button>
+                                    <button
+                                        class="chart-filter-btn px-3 py-1 text-label-md bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors">Mensual</button>
+                                </div>
+                            </div>
+                            <!-- Visual Chart Mockup -->
+                            <div class="relative h-64 w-full flex items-end justify-between px-2 gap-4">
+                                <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                                    <div class="border-b border-slate-100 w-full h-0"></div>
+                                    <div class="border-b border-slate-100 w-full h-0"></div>
+                                    <div class="border-b border-slate-100 w-full h-0"></div>
+                                    <div class="border-b border-slate-100 w-full h-0"></div>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[60%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $1,240</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">LUN</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[85%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $2,100</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">MAR</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[45%] bg-primary rounded-t-lg flex flex-col items-center group cursor-pointer hover:opacity-90 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $980</div>
+                                    <span
+                                        class="mt-auto mb-[-24px] text-[10px] text-slate-900 font-bold font-label-md">MIE</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[70%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $1,600</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">JUE</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[95%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $2,400</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">VIE</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[55%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $1,100</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">SAB</span>
+                                </div>
+                                <div
+                                    class="chart-bar relative w-full h-[40%] bg-primary/5 rounded-t-lg border-x border-t border-primary/20 flex flex-col items-center group cursor-pointer hover:bg-primary/10 transition-all duration-500">
+                                    <div
+                                        class="chart-tooltip absolute -top-10 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        $820</div>
+                                    <span class="mt-auto mb-[-24px] text-[10px] text-slate-400 font-label-md">DOM</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Spending Categories -->
+                        <div class="lg:col-span-1 bg-white p-6 rounded-xl border border-outline-variant flex flex-col">
+                            <h3 class="font-h3 text-h3 text-slate-900 mb-6">Por Categoría</h3>
+                            <div class="space-y-6 flex-1">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center text-body-sm">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                            <span class="font-medium">Vivienda</span>
+                                        </div>
+                                        <span class="text-slate-500">$1,500.00</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-slate-100 rounded-full">
+                                        <div class="h-full bg-primary rounded-full w-[45%]"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center text-body-sm">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-secondary"></span>
+                                            <span class="font-medium">Comida</span>
+                                        </div>
+                                        <span class="text-slate-500">$645.20</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-slate-100 rounded-full">
+                                        <div class="h-full bg-secondary rounded-full w-[20%]"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center text-body-sm">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-slate-400"></span>
+                                            <span class="font-medium">Entretenimiento</span>
+                                        </div>
+                                        <span class="text-slate-500">$320.15</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-slate-100 rounded-full">
+                                        <div class="h-full bg-slate-400 rounded-full w-[12%]"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center text-body-sm">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                                            <span class="font-medium">Otros</span>
+                                        </div>
+                                        <span class="text-slate-500">$745.10</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-slate-100 rounded-full">
+                                        <div class="h-full bg-slate-200 rounded-full w-[23%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="btnViewAllCats" class="mt-6 w-full py-2 text-label-md text-primary font-bold hover:underline">Ver Todas las Categorías</button>
+                        </div>
+                    </div>
+                    <!-- Bottom Section: Recent Transactions -->
+                    <div class="bg-white rounded-xl border border-outline-variant overflow-hidden">
+                        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                            <h3 class="font-h3 text-h3 text-slate-900">Transacciones Recientes <span id="txCounter" class="text-body-sm font-normal text-slate-500 ml-2">(0)</span></h3>
+                            <button id="btnFilterTx"
+                                class="text-label-md text-slate-500 flex items-center gap-1 hover:text-primary transition-colors">
+                                Filtrar <span class="material-symbols-outlined text-[16px]"
+                                    data-icon="filter_list">filter_list</span>
+                            </button>
+                        </div>
+                        <div id="transactionsList" class="divide-y divide-slate-100">
+                            <!-- Las transacciones se renderizarán aquí desde app.js -->
+                        </div>
+                        <div class="p-4 bg-slate-50 text-center">
+                            <button id="btnDownloadPDF" class="text-label-md text-slate-600 font-bold hover:text-primary">Descargar Estado de Cuenta (PDF)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Mobile Bottom NavBar -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 flex justify-around py-3 z-50">
+        <div class="flex flex-col items-center gap-1 text-primary">
+            <span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill">dashboard</span>
+            <span class="text-[10px] font-label-md">Inicio</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+            <span class="text-[10px] font-label-md">Actividad</span>
+        </div>
+        <div id="mobileAddBtn"
+            class="flex flex-col items-center gap-1 text-slate-400 cursor-pointer hover:text-primary transition-colors">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white -mt-8 shadow-lg">
+                <span class="material-symbols-outlined" data-icon="add">add</span>
+            </div>
+            <span class="text-[10px] font-label-md opacity-0">Añadir</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+            <span class="text-[10px] font-label-md">Estadísticas</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="text-[10px] font-label-md">Perfil</span>
+        </div>
+    </nav>
+
+    <!-- Modal de Transacciones -->
+    <div id="transactionModal"
+        class="fixed inset-0 bg-slate-900/50 hidden items-center justify-center z-[100] px-4 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <div class="flex justify-between items-center px-6 py-4 border-b border-slate-100">
+                <h2 id="modalTitle" class="text-h3 font-h3 text-slate-900">Añadir Transacción</h2>
+                <button id="closeModalBtn" class="text-slate-400 hover:text-slate-600 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form id="transactionForm" class="p-6 space-y-4">
+                <input type="hidden" id="transactionId">
+                <div>
+                    <label class="block text-label-md text-slate-700 mb-1">Tipo de Transacción</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="tipo" value="ingreso"
+                                class="text-primary focus:ring-primary h-4 w-4" required>
+                            <span class="text-body-sm text-slate-700">Ingreso</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="tipo" value="gasto" class="text-error focus:ring-error h-4 w-4"
+                                checked required>
+                            <span class="text-body-sm text-slate-700">Gasto</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label for="monto" class="block text-label-md text-slate-700 mb-1">Monto ($)</label>
+                    <input type="number" id="monto" step="0.01" min="0"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-body-sm"
+                        required placeholder="0.00">
+                </div>
+                <div>
+                    <label for="categoria" class="block text-label-md text-slate-700 mb-1">Categoría</label>
+                    <select id="categoria"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-body-sm"
+                        required>
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option value="Vivienda">Vivienda</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Tecnologia">Tecnología</option>
+                        <option value="Salario">Salario</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="descripcion" class="block text-label-md text-slate-700 mb-1">Descripción</label>
+                    <input type="text" id="descripcion"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-body-sm"
+                        required placeholder="Ej. Compra de supermercado">
+                </div>
+                <div>
+                    <label for="fecha" class="block text-label-md text-slate-700 mb-1">Fecha</label>
+                    <input type="date" id="fecha"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-body-sm"
+                        required>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex justify-end gap-3">
+                    <button type="button" id="cancelBtn"
+                        class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-label-md transition-colors">Cancelar</button>
+                    <button type="submit"
+                        class="px-4 py-2 bg-primary text-white rounded-lg font-label-md hover:opacity-90 transition-opacity">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contenedor de Toasts -->
+    <div id="toastContainer" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[200] flex flex-col gap-2 pointer-events-none"></div>
+
+</body>
+
+</html>

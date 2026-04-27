@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuración - FinControl</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffd8e7",
+                      "on-tertiary-container": "#d3579a",
+                      "on-secondary-fixed": "#002113",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-fixed-dim": "#ffafd3",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fcf8fa",
+                      "primary-container": "#131b2e",
+                      "primary": "#000000",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-container": "#00714d",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-high": "#eae7e9",
+                      "outline": "#76777d",
+                      "background": "#fcf8fa",
+                      "outline-variant": "#c6c6cd",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#565e74",
+                      "inverse-surface": "#303032",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#3d0026",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#dcd9db",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary": "#000000",
+                      "secondary": "#006c49",
+                      "inverse-primary": "#bec6e0",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-primary-container": "#7c839b",
+                      "surface-container-highest": "#e4e2e4",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-background": "#1b1b1d",
+                      "surface-variant": "#e4e2e4",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#85145a",
+                      "on-surface": "#1b1b1d",
+                      "surface-container": "#f0edef",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-secondary-fixed-variant": "#005236",
+                      "inverse-on-surface": "#f3f0f2",
+                      "surface-container-low": "#f6f3f5",
+                      "surface": "#fcf8fa",
+                      "primary-fixed": "#dae2fd",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#3d0026",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "md": "24px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "sm": "12px",
+                      "margin": "32px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "h3": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "h2": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display": ["Inter"],
+                      "numeric-display": ["Inter"],
+                      "h1": ["Inter"]
+              },
+              "fontSize": {
+                      "h3": ["20px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400"}],
+                      "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "numeric-display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-slate-200 bg-slate-50 p-4 space-y-2 fixed left-0 top-0 z-50">
+<div class="px-4 py-6">
+<span class="text-lg font-black text-slate-900 tracking-tight">FinControl</span>
+</div>
+<nav class="flex-1 space-y-2">
+<a href="/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Panel</span>
+</a>
+<a href="/transacciones.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Transacciones</span>
+</a>
+<a href="/analisis.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Análisis</span>
+</a>
+<a href="/configuracion.html" class="flex items-center gap-3 px-4 py-3 text-slate-900 bg-slate-200/50 rounded-lg font-semibold cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 mt-auto">
+<div class="flex items-center gap-3 px-4 py-3 mb-4 bg-white rounded-xl border border-slate-200">
+<img alt="Alex Morgan" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtLs0lUbogmDvduS_IbXrdMXqbqfMAfyU7Q6QTVITRUlvrZpyYoJr45NkLjJeeQ7qV6FPANsnpZtjvBHnLOSbjACjpjs5-6sMDbZrj7bkDf79u33Gm3mCQy4h30yX5U5NmVSIx-172FpxrfJ9JDohL8fksa8aDFbTvPhOsGUKz1PhGJzdQpB6_txUzJc2QXac855dMFFyUz7oVg197bwSIMmk8tWBKSkydG2xBwAUF73L9L1RWVNYz6ezoRaQ_ATLsX0czg9FVhw"/>
+<div class="flex flex-col min-w-0">
+<span class="text-body-sm font-h3 truncate">Alex Morgan</span>
+<span class="text-[10px] text-slate-500 font-label-md uppercase tracking-wider">Cuenta Premium</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm flex items-center justify-between px-6 py-3 font-inter antialiased">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight text-slate-900">Configuración de Cuenta</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer active:opacity-80">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-slate-200 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzN9D1OhrgENv5ZdCamWKhREctynTuT42AZF85GZRCUuj3yi8-8z-5bPEqPG5aeeuG5ylAsuRxglUm4zO2p3OmKC4D4MNaTTdtDbFavtI936imW1QeSjJnRANDkMBprHYxzUpGgMoRscylplcZFleZ1eWKK7SIRyWBHN15DVWjOZmbb0GPFja6qP3UdtUw4yr5yqOv9gXA3tj0AQpUAFmB-9Lv5egLH932JaPqIt05or7Y92IoWJxuhiDyh8oLT3tyqE6Lp9Mzew"/>
+<span class="font-label-md text-label-md text-slate-900">Soporte</span>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-lg max-w-5xl w-full mx-auto space-y-lg">
+<!-- Profile Information Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-xs">Información de Perfil</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Administra tu identidad personal y credenciales públicas.</p>
+</div>
+<div class="md:col-span-2 bg-white border border-slate-200 rounded-xl p-md">
+<div class="flex items-center gap-md mb-xl">
+<div class="relative group">
+<img alt="Alex Morgan" class="w-24 h-24 rounded-full object-cover border-4 border-slate-50 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVqHXz6dvEZo7d1LhWuiKVILNjsBcECBZ6IDu1NmbHDqcoEO29EgpuLHpKeZQeXb7fxT07SfrxRbh77G_8urlWB9rc7ftUcxcmOhZrrAenrUjpY86YYi4TKsnahA6xEPJiZ6NKBZcYTIGwEzI8xSQIAOurTEB5HqJNe8V0LzFRzkdz2sXVGLoWi7-UzdyCw_EtCqdTKXMWorcckyaICPWh1KLgfEUQutXPVhZzWdGsDu4Ilh0k7jzOhzwzvKTaFc0uRkApzRGCGA"/>
+<button class="absolute bottom-0 right-0 bg-slate-900 text-white p-2 rounded-full shadow-lg hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div>
+<h4 class="font-body-lg font-semibold text-slate-900">Alex Morgan</h4>
+<p class="font-body-sm text-on-surface-variant">Fundador e Inversor</p>
+<button class="mt-base text-secondary font-label-md hover:underline">Cambiar foto</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-slate-500">NOMBRE COMPLETO</label>
+<input class="w-full bg-transparent border-b-2 border-slate-200 focus:border-slate-900 outline-none py-2 font-body-md transition-all" type="text" value="Alex Morgan"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-slate-500">CORREO ELECTRÓNICO</label>
+<input class="w-full bg-transparent border-b-2 border-slate-200 focus:border-slate-900 outline-none py-2 font-body-md transition-all" type="email" value="alex.morgan@fincontrol.io"/>
+</div>
+</div>
+<div class="mt-xl flex justify-end">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md shadow-sm hover:opacity-90 transition-opacity">Guardar Cambios</button>
+</div>
+</div>
+</section>
+<hr class="border-slate-200"/>
+<!-- Account Security Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-xs">Seguridad de la Cuenta</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Protege tus datos financieros con autenticación avanzada.</p>
+</div>
+<div class="md:col-span-2 space-y-md">
+<div class="bg-white border border-slate-200 rounded-xl p-md">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="lock_reset">lock_reset</span>
+<h4 class="font-body-md font-semibold text-slate-900">Actualizar Contraseña</h4>
+</div>
+<button class="border border-slate-200 text-slate-900 px-md py-xs rounded-lg font-label-md hover:bg-slate-50 transition-colors">Cambiar</button>
+</div>
+<p class="font-body-sm text-on-surface-variant">Última actualización hace 4 meses. Recomendamos cambiarla cada 6 meses.</p>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<div>
+<h4 class="font-body-md font-semibold text-slate-900">Autenticación de Dos Factores</h4>
+<p class="font-body-sm text-on-surface-variant">Añade una capa extra de seguridad a tu cuenta.</p>
+</div>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary cursor-pointer">
+<span class="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-white transition"></span>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-slate-200"/>
+<!-- Notification Preferences Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-xs">Preferencias de Notificación</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Controla cómo y cuándo te contactamos sobre tu actividad.</p>
+</div>
+<div class="md:col-span-2 bg-white border border-slate-200 rounded-xl divide-y divide-slate-100">
+<div class="p-md flex items-center justify-between">
+<div>
+<h4 class="font-body-md font-semibold text-slate-900">Alertas de Transacciones</h4>
+<p class="font-body-sm text-on-surface-variant">Notificación push instantánea para cada gasto o ingreso.</p>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary cursor-pointer">
+<span class="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-white transition"></span>
+</div>
+</div>
+<div class="p-md flex items-center justify-between">
+<div>
+<h4 class="font-body-md font-semibold text-slate-900">Reportes Semanales</h4>
+<p class="font-body-sm text-on-surface-variant">Un resumen de tu presupuesto semanal y rendimiento de inversiones.</p>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary cursor-pointer">
+<span class="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-white transition"></span>
+</div>
+</div>
+<div class="p-md flex items-center justify-between">
+<div>
+<h4 class="font-body-md font-semibold text-slate-900">Comunicaciones de Marketing</h4>
+<p class="font-body-sm text-on-surface-variant">Recibe noticias sobre nuevas funciones y consejos financieros.</p>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-slate-200 cursor-pointer">
+<span class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition"></span>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-slate-200"/>
+<!-- Subscription Management Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-xs">Gestión de Suscripción</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Revisa los detalles de tu plan y la información de facturación.</p>
+</div>
+<div class="md:col-span-2">
+<div class="bg-primary-container text-white rounded-xl p-md relative overflow-hidden">
+<!-- Background Accent -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-xs">
+<h4 class="font-h2 text-h2 text-white">Membresía Pro</h4>
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase">ACTIVO</span>
+</div>
+<p class="font-body-sm text-slate-400">Próxima fecha de facturación: <span class="text-white">15 de diciembre de 2024</span></p>
+<p class="font-body-sm text-slate-400 mt-base">$19.99 / mes</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-white text-slate-900 px-md py-xs rounded-lg font-label-md hover:bg-slate-100 transition-colors">Administrar Facturación</button>
+<button class="border border-white/20 text-white px-md py-xs rounded-lg font-label-md hover:bg-white/10 transition-colors">Ver Facturas</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-slate-200"/>
+<!-- Danger Zone -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter pb-xl">
+<div>
+<h3 class="font-h3 text-h3 text-error mb-xs">Zona de Peligro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acciones irreversibles con los datos de tu cuenta.</p>
+</div>
+<div class="md:col-span-2 bg-error-container/20 border border-error/10 rounded-xl p-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<h4 class="font-body-md font-semibold text-slate-900">Eliminar Cuenta</h4>
+<p class="font-body-sm text-on-surface-variant">Una vez que elimines tu cuenta, no hay vuelta atrás. Por favor, asegúrate.</p>
+</div>
+<button class="bg-error text-on-error px-md py-xs rounded-lg font-label-md shadow-sm hover:opacity-90 transition-opacity whitespace-nowrap">Eliminar Cuenta</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

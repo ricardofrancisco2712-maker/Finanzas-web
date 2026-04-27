@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Análisis - FinControl</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#eae7e9",
+                        "secondary-container": "#6cf8bb",
+                        "on-primary-fixed": "#131b2e",
+                        "outline": "#76777d",
+                        "primary-fixed": "#dae2fd",
+                        "on-secondary-container": "#00714d",
+                        "surface-container": "#f0edef",
+                        "tertiary-container": "#3d0026",
+                        "surface-tint": "#565e74",
+                        "surface-bright": "#fcf8fa",
+                        "inverse-primary": "#bec6e0",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary-container": "#7c839b",
+                        "inverse-surface": "#303032",
+                        "error": "#ba1a1a",
+                        "secondary": "#006c49",
+                        "tertiary": "#000000",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffafd3",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#d3579a",
+                        "surface-variant": "#e4e2e4",
+                        "on-background": "#1b1b1d",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "tertiary-fixed": "#ffd8e7",
+                        "surface-container-low": "#f6f3f5",
+                        "on-surface": "#1b1b1d",
+                        "background": "#fcf8fa",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-dim": "#dcd9db",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#3d0026",
+                        "on-tertiary-fixed-variant": "#85145a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface": "#fcf8fa",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "numeric-display": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h2": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "numeric-display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .chart-bar { transition: height 0.3s ease; }
+    </style>
+    <script src="/js/analisis.js" defer></script>
+</head>
+<body class="bg-background text-on-background font-sans antialiased">
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-slate-200 bg-slate-50 p-4 space-y-2 fixed left-0 top-0 z-50">
+<div class="px-4 py-6">
+<span class="text-lg font-black text-slate-900 tracking-tight">FinControl</span>
+</div>
+<nav class="flex-1 space-y-2">
+<a href="/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Panel</span>
+</a>
+<a href="/transacciones.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Transacciones</span>
+</a>
+<a href="/analisis.html" class="flex items-center gap-3 px-4 py-3 text-slate-900 bg-slate-200/50 rounded-lg font-semibold cursor-pointer">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Análisis</span>
+</a>
+<a href="/configuracion.html" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 mt-auto">
+<div class="flex items-center gap-3 px-4 py-3 mb-4 bg-white rounded-xl border border-slate-200">
+<img alt="Alex Morgan" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a professional businessman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtLs0lUbogmDvduS_IbXrdMXqbqfMAfyU7Q6QTVITRUlvrZpyYoJr45NkLjJeeQ7qV6FPANsnpZtjvBHnLOSbjACjpjs5-6sMDbZrj7bkDf79u33Gm3mCQy4h30yX5U5NmVSIx-172FpxrfJ9JDohL8fksa8aDFbTvPhOsGUKz1PhGJzdQpB6_txUzJc2QXac855dMFFyUz7oVg197bwSIMmk8tWBKSkydG2xBwAUF73L9L1RWVNYz6ezoRaQ_ATLsX0czg9FVhw"/>
+<div class="flex flex-col min-w-0">
+<span class="text-body-sm font-h3 truncate">Alex Morgan</span>
+<span class="text-[10px] text-slate-500 font-label-md uppercase tracking-wider">Cuenta Premium</span>
+</div>
+</div>
+</div>
+</aside>
+<main class="md:ml-64 flex-1 flex flex-col min-h-screen">
+<header class="w-full sticky top-0 z-40 bg-white border-b border-slate-200">
+<div class="flex justify-between items-center h-16 px-6 max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight text-slate-900">Análisis</h2>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">Tiempo Real</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-full text-sm focus:ring-1 focus:ring-primary-container w-64" placeholder="Buscar reportes..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-[1200px] mx-auto p-6 space-y-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+<div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-1">Rendimiento Financiero</h3>
+<p class="font-body-sm text-body-sm text-slate-500">Resumen general de tus gastos y crecimiento para el Q3 2024</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                        Últimos 30 Días
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="file_download">file_download</span>
+                        Exportar PDF
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+<div class="bg-white p-6 border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Ingresos Totales</span>
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up">trending_up</span>
+</div>
+<p id="analysisTotalIncome" class="font-numeric-display text-numeric-display text-slate-900">$0.00</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded">+12.5%</span>
+<span class="text-[11px] text-slate-400 font-medium">vs mes pasado</span>
+</div>
+</div>
+<div class="bg-white p-6 border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gasto Mensual Promedio</span>
+<span class="material-symbols-outlined text-slate-400" data-icon="query_stats">query_stats</span>
+</div>
+<p id="analysisAvgSpend" class="font-numeric-display text-numeric-display text-slate-900">$0.00</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-slate-600 text-[10px] font-bold rounded">-2.1%</span>
+<span class="text-[11px] text-slate-400 font-medium">vs mes pasado</span>
+</div>
+</div>
+<div class="bg-white p-6 border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Ahorros Netos</span>
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance">account_balance</span>
+</div>
+<p id="analysisNetSavings" class="font-numeric-display text-numeric-display text-slate-900">$0.00</p>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex-1 h-1 bg-slate-100 rounded-full overflow-hidden">
+<div id="analysisSavingsBar" class="h-full bg-secondary w-[0%] rounded-full"></div>
+</div>
+<span id="analysisSavingsPercent" class="text-[11px] text-slate-900 font-bold">0%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md mb-lg">
+<div class="lg:col-span-2 bg-white p-8 border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="font-label-md text-label-md text-slate-900 uppercase">Ingresos vs Gastos</h4>
+<p class="text-xs text-slate-500 mt-1">Comparación de los últimos 6 meses</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-xs font-medium text-slate-600">Ingresos</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-200"></span>
+<span class="text-xs font-medium text-slate-600">Gastos</span>
+</div>
+</div>
+</div>
+<div id="chartContainer" class="h-64 w-full flex items-end justify-between gap-4">
+<!-- Las barras se inyectarán vía JS -->
+</div>
+</div>
+<div class="bg-white p-8 border border-slate-200 rounded-xl shadow-sm">
+<h4 class="font-label-md text-label-md text-slate-900 uppercase mb-8">Desglose por Categoría</h4>
+<div id="categoryBreakdownContainer" class="space-y-6">
+<!-- El desglose de categorías se llenará vía JS -->
+</div>
+<button class="w-full mt-8 py-3 border border-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-50 transition-colors">
+                        Ver Lista Detallada
+                    </button>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden mb-xl">
+<div class="p-6 border-b border-slate-100 flex items-center justify-between">
+<h4 class="font-label-md text-label-md text-slate-900 uppercase">Alertas Estratégicas Recientes</h4>
+<button id="btnMarkRead" class="text-xs font-bold text-secondary hover:underline transition-all">Marcar todo como leído</button>
+</div>
+<div id="alertsContainer" class="divide-y divide-slate-50 transition-all duration-500 ease-in-out">
+<div class="p-6 flex gap-4 hover:bg-slate-50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="savings">savings</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h5 class="text-sm font-bold text-slate-900">Meta de Ahorro Alcanzada</h5>
+<span class="text-[10px] font-medium text-slate-400">Hace 2h</span>
+</div>
+<p class="text-sm text-slate-500">Has alcanzado el 100% de tu meta de 'Fondo de Emergencia'. Considera aumentar tu contribución mensual para el próximo ciclo.</p>
+</div>
+</div>
+<div class="p-6 flex gap-4 hover:bg-slate-50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-slate-600 text-xl" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h5 class="text-sm font-bold text-slate-900">Gasto Inusual Detectado</h5>
+<span class="text-[10px] font-medium text-slate-400">Hace 5h</span>
+</div>
+<p class="text-sm text-slate-500">La suscripción a 'CloudSaaS' cobró $149.00 hoy, lo que es un 25% más alto que tu costo promedio mensual de entretenimiento.</p>
+</div>
+</div>
+<div class="p-6 flex gap-4 hover:bg-slate-50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-blue-600 text-xl" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h5 class="text-sm font-bold text-slate-900">Oportunidad de Optimización Fiscal</h5>
+<span class="text-[10px] font-medium text-slate-400">Ayer</span>
+</div>
+<p class="text-sm text-slate-500">Basado en tus transacciones recientes, podrías ser elegible para deducciones por 'Gastos de Educación' este año fiscal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md items-start">
+<div class="relative rounded-2xl overflow-hidden aspect-[16/9] group shadow-lg">
+<img alt="Planificación Financiera" class="w-full h-full object-cover" data-alt="Plano amplio de una oficina limpia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJYmY4Cba_moz1u0KqdfpKE1a72k2t79tgiEfGCmwLqfpkD14gby_tSDfRPT3qPB-0jyGd21mykeaYLwTHrW9MNCcYQKcYM3tNuGw7yfJ0h5z_zGju9Xe73hqx6kWu6gqx5GxbLboi9IrxfDK4wnahA53Yin38mcvvh09urTZcx3-rLYMCFvEpy0XSbfVUJkbbNg0QAGFnIqD8VzmOv6e5IeI1INGONiyQuNXqFCIIXDbaWfBC3liNOljPwEU0VzjPLcuH019d_A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent p-8 flex flex-col justify-end">
+<span class="text-[10px] font-black text-white/70 uppercase tracking-widest mb-2">Artículo Destacado</span>
+<h3 class="text-xl font-bold text-white mb-4">Dominando la regla 50/30/20 para la riqueza a largo plazo</h3>
+<button class="w-fit px-6 py-2 bg-white text-slate-900 text-sm font-bold rounded-full hover:bg-slate-100 transition-colors">Leer Artículo</button>
+</div>
+</div>
+<div class="bg-primary-container text-white p-10 rounded-2xl shadow-xl flex flex-col justify-between min-h-[300px]">
+<div>
+<h3 class="text-2xl font-bold mb-4">Gestión de Portafolio Premium</h3>
+<p class="text-slate-400 leading-relaxed mb-8">Accede a herramientas de análisis de grado institucional y asesores financieros dedicados. Solo para usuarios FinControl Pro.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9lbU_vMKM8bfoXMq-6hwCeFUYEo6KIrSNiVSK9X73uxNWjO0RPbICCACnYWiXSzbWZ-W-4Kgv7vJzu0c0v9MF-C3BIFZeD1_fV9-xkpXtOPRIUHq4MoeoV1RnvMyAojGkpEUGNVCKYdgzF8yU1vc_ZuE71KsJYDEZ41eRj9tyJ8MfDhBkeiJsVnBe3aR8S7VQ4MZbnbuqLpD5uyQ1vaGC6-xq8CPY97zntPn0gEkMsWIn0uBWjgkoWo23_5HR5skyBxx-R8sTkQ"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7-AH-DhZTsNe3ctE46NwkmQy4LQcixVkZ2KLmeDm_XzsNCK0IYZtGbze5RN-07-FgfxdtyViuFpr0SIyyFLnkmyR7qhkyfhibdseLSa23-Bi1XnSOJBXJxqngSTFj5YPkbjdzsVmUr2tHUYa2YU5PrOpS0N_RULNFbLoxWqNL6zOBtuoV4w10Lbpk4LejmHoscQ9V_2UuSoD8lylfXeXUTelQ8LdI_WH2i7oku9zH1QvJFMH0dnMCbIXxM9Zio6WZAMd-W9hejg"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA1kjTffYzmnEgdsbKqtzP1uFBkD6rPepyvlMoxRvgyTBaRhxk0e9NpdSQVtIUQN1QKJp0bHhfuGZJy7krGezju01WxDu1cPUKDsb9iWcEloscgom8nAx80lde6Tr4-zTJmbLmcosPPlHIFRNJ6BZi0kQO6LV_GDmGgmU8aajRLnTCVxDkO_SupcWhrX-OHUwXVL1Rp0wP16e38ngXW6MMLoCekEhFSDBE7_n0grBkvpvp04EDLIdeSyvOpUnqd2jibxoNlKf6Vw"/>
+</div>
+<span class="text-sm font-medium text-slate-300">Unidos por 2.4k profesionales este mes</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
