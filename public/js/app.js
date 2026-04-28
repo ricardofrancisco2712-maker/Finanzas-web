@@ -313,16 +313,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Interacciones del Sidebar Inferior (Cerrar Sesión, Ayuda)
-    document.querySelectorAll('aside .mt-4 > .nav-item, aside .pt-4 > div').forEach(div => {
-        div.addEventListener('click', (e) => {
+    // Logout Logic
+    document.querySelectorAll('.nav-item, div, a').forEach(el => {
+        el.addEventListener('click', (e) => {
             const text = e.currentTarget.textContent.trim();
             if(text.includes('Cerrar Sesión') || text.includes('Logout')) {
                 showToast('Cerrando sesión...', 'logout');
                 setTimeout(() => {
                     localStorage.removeItem('fincontrol_user');
                     window.location.href = '/login.html';
-                }, 800);
+                }, 1000);
             } else if (text.includes('Centro de Ayuda') || text.includes('Help Center')) {
                 showToast('Redirigiendo a soporte técnico...', 'support');
             }
